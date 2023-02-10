@@ -29,7 +29,7 @@
                         <input type="text" class="form-control" placeholder="name" name="title">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-danger" value="Add">
+                        <input type="submit" class="btn btn-success" value="Create">
                     </div>
                 </form>
             </div>
