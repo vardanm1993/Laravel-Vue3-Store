@@ -41,7 +41,7 @@
                                 <tbody>
                                     <tr>
                                         <td>ID</td>
-                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $category->id }}</td>
                                     </tr>
                                     <tr>
                                         <td>NAME</td>

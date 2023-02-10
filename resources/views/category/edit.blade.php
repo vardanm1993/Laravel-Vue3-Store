@@ -30,7 +30,7 @@
                         <input type="text" class="form-control" value="{{ $category->title }}" placeholder="name" name="title">
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-danger" value="Edit">
+                        <input type="submit" class="btn btn-warning" value="Update">
                     </div>
                 </form>
             </div>
