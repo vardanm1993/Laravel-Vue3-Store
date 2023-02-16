@@ -72,6 +72,10 @@
                                     <td>{{ $product->category->title }}</td>
                                 </tr>
                                 <tr>
+                                    <td>GROUP</td>
+                                    <td>{{ $product->group->title }}</td>
+                                </tr>
+                                <tr>
                                     <td>COLORS</td>
 
                                     <td>

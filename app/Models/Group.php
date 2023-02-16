@@ -5,17 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * @property int $id
- * @property string $title
- */
-class Category extends Model
+class Group extends Model
 {
-    protected $table = 'categories';
+    protected $table = 'groups';
     protected $guarded = false;
 
     public function products(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'group_id','id');
     }
 }

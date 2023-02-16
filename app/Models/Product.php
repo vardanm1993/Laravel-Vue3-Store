@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
@@ -31,8 +32,14 @@ class Product extends Model
         return $this->belongsToMany(Color::class,'product_color','product_id','color_id');
     }
 
-    public  function category(){
+    public  function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public  function group(): BelongsTo
+    {
+        return $this->belongsTo(Group::class);
     }
 
     public static function getStatus (): array
@@ -47,5 +54,10 @@ class Product extends Model
     public function getStatusAttribute(): string
     {
         return self::getStatus()[$this->is_published];
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return url('storage/' . $this->preview_image);
     }
 }
