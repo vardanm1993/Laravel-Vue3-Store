@@ -13,11 +13,13 @@ class EditController extends Controller
     public function __invoke(Product $product)
     {
         $categories = Category::all();
+        $groups = Group::all();
         $tags = Tag::all();
         $colors = Color::all();
         return view('product.edit', [
             'product' => $product,
             'categories' => $categories,
+            'groups' => $groups,
             'tags' => $tags,
             'colors' => $colors
         ]);

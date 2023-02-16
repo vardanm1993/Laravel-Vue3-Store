@@ -40,6 +40,7 @@
                                     <th>COUNT</th>
                                     <th>STATUS</th>
                                     <th>CATEGORY</th>
+                                    <th>GROUP</th>
                                     <th>COLORS</th>
                                     <th>TAGS</th>
                                     <th>IMAGE</th>
@@ -56,6 +57,7 @@
                                         <td>{{ $product->count }}</td>
                                         <td>{{ $product->status }}</td>
                                         <td>{{ $product->category->title }}</td>
+                                        <td>{{ $product->group->title }}</td>
                                         <td>
                                             @foreach($product->colors as $color)
                                                 <div class="float-left ml-1"

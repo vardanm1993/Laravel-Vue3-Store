@@ -154,6 +154,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('group.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-list-ul"></i>
+                            <p>Groups</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('category.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-list-ul"></i>
                             <p>Categories</p>
@@ -226,6 +232,7 @@
     $('.categories').select2()
     $('.check-status').select2()
     $('.gender').select2()
+    $('.groups').select2()
 </script>
 </body>
 </html>
