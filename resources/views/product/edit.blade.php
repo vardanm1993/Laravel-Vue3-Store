@@ -76,7 +76,7 @@
                             <option disabled>Choose a group</option>
                             @foreach($groups as $group)
                                 <option
-                                    value="{{ $group->id}}" {{ old('group_id') == $group->id ? 'selected' : ''}}> {{ $category->title }}</option>
+                                    value="{{ $group->id}}" {{ old('group_id') == $group->id ? 'selected' : ''}}> {{ $group->title }}</option>
                             @endforeach
                         </select>
                     </div>
