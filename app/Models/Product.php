@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property Color $colors
@@ -42,6 +45,11 @@ class Product extends Model
         return $this->belongsTo(Group::class);
     }
 
+    public function images(): HasMany
+    {
+        return $this->hasMany(Image::class);
+    }
+
     public static function getStatus (): array
     {
         return [
@@ -56,7 +64,7 @@ class Product extends Model
         return self::getStatus()[$this->is_published];
     }
 
-    public function getImageUrlAttribute()
+    public function getImageUrlAttribute(): string|UrlGenerator|Application
     {
         return url('storage/' . $this->preview_image);
     }
