@@ -50,6 +50,31 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input name="images[]" type="file" class="custom-file-input" id="exampleInputFile">
+                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <select name="category_id" class="form-control categories" style="width: 100%">
                             <option selected="selected" disabled>Choose Category</option>
                             @foreach($categories as $category)

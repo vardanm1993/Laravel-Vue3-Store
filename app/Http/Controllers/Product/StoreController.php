@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\StoreRequest;
+use App\Models\Image;
 use App\Models\Product;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -18,17 +19,27 @@ class StoreController extends Controller
         DB::beginTransaction();
         try {
             $data = $request->validated();
+            $images = $data['images'];
             $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
             $tags = $data['tags'];
             $colors = $data['colors'];
-            unset($data['tags'],$data['colors']);
+            unset($data['tags'], $data['colors'],$data['images']);
 
             $product = Product::firstOrCreate([
                 'title' => $data['title']
-            ],$data);
+            ], $data);
 
             $product->tags()->attach($tags);
             $product->colors()->attach($colors);
+
+
+            foreach ($images as $image){
+                $filePath = Storage::disk('public')->put('/images', $image);
+                Image::create([
+                    'product_id' => $product->id,
+                    'file_path' =>$filePath,
+                ]);
+            }
 
             DB::commit();
 

@@ -3,9 +3,7 @@
 namespace App\Http\Resources\Product;
 
 use App\Http\Resources\Category\CategoryResource;
-use App\Http\Resources\Image\ImageResource;
 use App\Models\Category;
-use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,9 +18,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property Product $is_published
  * @property Product $group_id
  * @property Category $category
- * @property Image $images
  */
-class ProductResource extends JsonResource
+class IndexProductResource extends JsonResource
 {
 
     /**
@@ -33,7 +30,6 @@ class ProductResource extends JsonResource
      */
     public function toArray($request)
     {
-        $products  = Product::where('group_id', $this->group_id)->get();
 
         return [
             'id' => $this->id,
@@ -45,8 +41,6 @@ class ProductResource extends JsonResource
             'count' => $this->count,
             'is_published' => $this->is_published,
             'category' => new CategoryResource($this->category),
-            'images' => ImageResource::collection($this->images),
-            'group_products' =>  ProductMinResource::collection($products),
         ];
     }
 }
